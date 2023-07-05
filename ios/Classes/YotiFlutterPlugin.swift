@@ -12,7 +12,7 @@ public class YotiFlutterPlugin: NSObject, FlutterPlugin, YotiSDKDataSource, Yoti
       
       switch result {
           case .success:
-              self.flutterResult!(Bool(true))
+              self.flutterResult!(Int(0))
               break
           case .failure(let error):
           self.flutterResult!(FlutterError(code: String(error.errorCode),

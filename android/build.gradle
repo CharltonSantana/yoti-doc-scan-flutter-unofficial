@@ -42,12 +42,25 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
     }
 
     dependencies {
         testImplementation 'org.jetbrains.kotlin:kotlin-test'
         testImplementation 'org.mockito:mockito-core:5.0.0'
+
+        implementation 'com.yoti.mobile.android.sdk:yoti-sdk-doc-scan:3.1.0'
+        //If you need supplementary documents
+        implementation 'com.yoti.mobile.android.sdk:yoti-sdk-doc-scan-sup:3.1.0'
+
+        //If you need liveness
+        implementation 'com.yoti.mobile.android.sdk:yoti-sdk-liveness-zoom:3.1.0'
+
+    }
+
+    packagingOptions {
+        exclude 'META-INF/*.kotlin_module'
+        exclude "**/kotlin/**"
     }
 
     testOptions {
