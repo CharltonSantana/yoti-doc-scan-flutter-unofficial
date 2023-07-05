@@ -19,7 +19,7 @@ import io.flutter.plugin.common.PluginRegistry
 
 /** YotiFlutterPlugin */
 class YotiFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, PluginRegistry.ActivityResultListener {
-  
+
   private lateinit var channel : MethodChannel
 
   private lateinit var context: Context
@@ -51,6 +51,23 @@ class YotiFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plugin
     }
   }
 
+  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
+    if(requestCode == 9001) {
+      val sessionStatusCode = yotiSdk.sessionStatusCode
+      val sessionStatusDescription = yotiSdk.sessionStatusDescription
+
+
+      if(sessionStatusCode == 0) {
+        result?.success(sessionStatusCode);
+      } else {
+        result?.error(sessionStatusCode.toString(), sessionStatusDescription, null)
+      }
+
+    }
+  
+    return true;
+  }
+
   override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
     channel.setMethodCallHandler(null)
   }
@@ -71,22 +88,5 @@ class YotiFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plugin
 
   override fun onDetachedFromActivityForConfigChanges() {
       TODO("Not yet implemented")
-  }
-
-  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
-      if(requestCode == 9001) {
-        val sessionStatusCode = yotiSdk.sessionStatusCode
-        val sessionStatusDescription = yotiSdk.sessionStatusDescription
-
-
-        if(sessionStatusCode == 0) {
-          result?.success(sessionStatusCode);
-        } else {
-          result?.error(sessionStatusCode.toString(), sessionStatusDescription, null)
-        }
-
-      }
-    
-     return true;
   }
 }
