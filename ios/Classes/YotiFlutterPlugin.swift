@@ -34,11 +34,9 @@ public class YotiFlutterPlugin: NSObject, FlutterPlugin, YotiSDKDataSource, Yoti
       true
   }
 
-
   public func supportedModuleTypes(for navigationController: YotiSDKNavigationController) -> [YotiSDKModule.Type] {
       [YotiSDKDocumentModule.self, YotiSDKFaceTecModule.self]
   }
-  
 
   var sessionIdString = "";
   var sessionTokenString = "";
@@ -71,12 +69,9 @@ public class YotiFlutterPlugin: NSObject, FlutterPlugin, YotiSDKDataSource, Yoti
       let navigationController = YotiSDKNavigationController()
       navigationController.sdkDataSource = self
       navigationController.sdkDelegate = self
-      //navigationController.with
       
       UIApplication.shared.keyWindow?.rootViewController?.present(
           navigationController, animated: true, completion: nil)
-      //navigationController.did
-      //self.result = result;
 
   }
 

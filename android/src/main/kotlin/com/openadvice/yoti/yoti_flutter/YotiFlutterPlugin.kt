@@ -19,10 +19,7 @@ import io.flutter.plugin.common.PluginRegistry
 
 /** YotiFlutterPlugin */
 class YotiFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, PluginRegistry.ActivityResultListener {
-  /// The MethodChannel that will the communication between Flutter and native Android
-  ///
-  /// This local reference serves to register the plugin with the Flutter Engine and unregister it
-  /// when the Flutter Engine is detached from the Activity
+  
   private lateinit var channel : MethodChannel
 
   private lateinit var context: Context
@@ -77,10 +74,6 @@ class YotiFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plugin
   }
 
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
-    // Log.d("TAG", "your log message")
-    // Log.d("TAG", "your log message")
-    // Log.d("TAG", "your log message")
-    // Log.d("TAG", "your log message")
       if(requestCode == 9001) {
         val sessionStatusCode = yotiSdk.sessionStatusCode
         val sessionStatusDescription = yotiSdk.sessionStatusDescription
