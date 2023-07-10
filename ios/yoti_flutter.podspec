@@ -5,9 +5,9 @@
 Pod::Spec.new do |s|
   s.name             = 'yoti_flutter'
   s.version          = '0.0.1'
-  s.summary          = 'A new Flutter plugin project.'
+  s.summary          = 'Flutter plugin to dridge to Yoti native SDKS..'
   s.description      = <<-DESC
-A new Flutter plugin project.
+  Flutter plugin to dridge to Yoti native SDKS..
                        DESC
   s.homepage         = 'http://example.com'
   s.license          = { :file => '../LICENSE' }
