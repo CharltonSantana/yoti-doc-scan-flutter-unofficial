@@ -21,20 +21,19 @@ The method accepts two callbacks: one invoked on success, and the other when the
 ```dart
 final _yotiFlutterPlugin = YotiFlutter();
 
-Future<void> startYoti() async {
-    try {
-      var response = await _yotiFlutterPlugin.startYoti(
-          "<Session ID>",
-          "<Session Token>");
 
-        print(response); // 0 - Result with success
+try {
+    var response = await _yotiFlutterPlugin.startYoti(
+        "<Session ID>",
+        "<Session Token>");
 
-    } catch (error) {
-    
-        // Session Cancelled / Error
-        print('Platform err: ${error.toString()}');
-    }
-  }
+    print(response); // 0 - Result with success
+
+} catch (error) {
+    // Session Cancelled / Error
+    print('Platform err: ${error.toString()}');
+}
+  
 ```
 
 Your error will receive a consistent response with two parameters: `code` (number) and `description` (string).
