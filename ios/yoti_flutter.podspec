@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'yoti_flutter'
-  s.version          = '0.0.6'
+  s.version          = '0.0.7'
   s.summary          = 'Flutter plugin to dridge to Yoti native SDKS..'
   s.description      = <<-DESC
   Flutter plugin to dridge to Yoti native SDKS..
@@ -15,9 +15,11 @@ Pod::Spec.new do |s|
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
+  s.dependency 'YotiSDKIdentityDocument'
   s.dependency 'YotiSDKDocument'
   s.dependency 'YotiSDKFaceTec'
   s.dependency 'YotiSDKFaceCapture'
+  
   s.platform = :ios, '13.0'
 
   # Flutter.framework does not contain a i386 slice.
