@@ -33,7 +33,7 @@ public class YotiFlutterPlugin: NSObject, FlutterPlugin, YotiSDKDataSource, Yoti
   }
 
   public func supportedModuleTypes(for navigationController: YotiSDKNavigationController) -> [YotiSDKModule.Type] {
-      [YotiSDKDocumentModule.self, YotiSDKFaceTecModule.self]
+      [YotiSDKIdentityDocumentModule.self, YotiSDKFaceTecModule.self]
   }
 
   var sessionIdString = "";

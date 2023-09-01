@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'yoti_flutter'
-  s.version          = '0.0.5'
+  s.version          = '0.0.6'
   s.summary          = 'Flutter plugin to dridge to Yoti native SDKS..'
   s.description      = <<-DESC
   Flutter plugin to dridge to Yoti native SDKS..
