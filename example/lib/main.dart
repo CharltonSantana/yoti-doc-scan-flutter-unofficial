@@ -24,8 +24,9 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> startYoti() async {
     try {
-      var response =
-          await _yotiFlutterPlugin.startYoti("<Session ID>", "<Session Token>");
+      var response = await _yotiFlutterPlugin.startYoti(
+          "dace7fb9-58b6-4bc9-9c86-041c0faf5a4d",
+          "d061b35b-b090-46c5-b395-56d487f2465e");
 
       print(response);
     } catch (error) {

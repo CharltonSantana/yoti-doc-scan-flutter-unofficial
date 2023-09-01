@@ -10,15 +10,13 @@ public class YotiFlutterPlugin: NSObject, FlutterPlugin, YotiSDKDataSource, Yoti
   public func navigationController(_ navigationController: YotiSDKCore.YotiSDKNavigationController, didFinishWithResult result: YotiSDKCommon.YotiSDKResult) {
       UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true)
       
-      switch result {
+        switch result {
           case .success:
               self.flutterResult!(Int(0))
               break
           case .failure(let error):
-          self.flutterResult!(FlutterError(code: String(error.errorCode),
-                                            message: String(error.errorCode),
-                                                details: nil))
-              print(error)
+              self.flutterResult!(Int(error.errorCode));
+              break;
           }
   }
   

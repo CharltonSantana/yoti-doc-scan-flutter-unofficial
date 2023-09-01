@@ -10,9 +10,8 @@ class MethodChannelYotiFlutter extends YotiFlutterPlatform {
   final methodChannel = const MethodChannel('yoti_flutter');
 
   @override
-  Future<String?> startYoti(String sessionId, String sessionToken) async {
-    final version = await methodChannel.invokeMethod<String>(
+  Future<int?> startYoti(String sessionId, String sessionToken) async {
+    return await methodChannel.invokeMethod<int>(
         'startYoti', {'sessionId': sessionId, 'sessionToken': sessionToken});
-    return version;
   }
 }

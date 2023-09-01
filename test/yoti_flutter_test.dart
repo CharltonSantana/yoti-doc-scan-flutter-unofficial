@@ -7,8 +7,8 @@ class MockYotiFlutterPlatform
     with MockPlatformInterfaceMixin
     implements YotiFlutterPlatform {
   @override
-  Future<String?> startYoti(String sessionId, String sessionToken) =>
-      Future.value('42');
+  Future<int?> startYoti(String sessionId, String sessionToken) =>
+      Future.value(42);
 }
 
 void main() {

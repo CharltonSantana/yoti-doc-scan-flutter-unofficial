@@ -23,7 +23,7 @@ abstract class YotiFlutterPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> startYoti(String sessionId, String sessionToken) {
+  Future<int?> startYoti(String sessionId, String sessionToken) {
     throw UnimplementedError('startYoti() has not been implemented.');
   }
 }
