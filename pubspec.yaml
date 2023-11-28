@@ -1,7 +1,8 @@
 name: yoti_flutter
 description: Flutter plugin to dridge to Yoti native SDKS. Yoti is an identity checking platform that allows organisations to verify who people are, online and in person.
 version: 0.0.7
-homepage:
+homepage: https://developers.yoti.com
+repository: https://github.com/CharltonSantana/yoti-doc-scan-flutter-unofficial/tree/main
 
 environment:
   sdk: '>=3.0.5 <4.0.0'
