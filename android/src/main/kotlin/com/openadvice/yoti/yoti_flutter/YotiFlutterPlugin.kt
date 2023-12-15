@@ -40,8 +40,8 @@ class YotiFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plugin
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
     if (call.method == "startYoti") {
       this.result = result
-      sessionId = call.argument<String>("sessionId")
-      clientSessionToken = call.argument<String>("sessionToken")
+      val sessionId = call.argument<String>("sessionId")
+      val clientSessionToken = call.argument<String>("sessionToken")
       yotiSdk
           .setSessionId(sessionId)
           .setClientSessionToken(clientSessionToken)
