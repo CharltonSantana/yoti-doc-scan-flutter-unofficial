@@ -42,10 +42,14 @@ class YotiFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plugin
       this.result = result
       val sessionId = call.argument<String>("sessionId")
       val clientSessionToken = call.argument<String>("sessionToken")
-      yotiSdk
-          .setSessionId(sessionId)
-          .setClientSessionToken(clientSessionToken)
-              .start(activity)
+      if (sessionId != null && clientSessionToken != null) {
+        yotiSdk
+            .setSessionId(sessionId!!)
+            .setClientSessionToken(clientSessionToken!!)
+                .start(activity)
+      } else {
+        throw Exception("sessionId and sessionToken must be provided to start Yoti.")
+      }
 
     } else {
       result.notImplemented()
