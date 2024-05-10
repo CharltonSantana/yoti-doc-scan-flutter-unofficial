@@ -1,6 +1,5 @@
 import Flutter
 import UIKit
-import YotiSDKCommon
 import YotiSDKCore
 import YotiSDKDocument
 import YotiSDKFaceTec
@@ -8,8 +7,8 @@ import YotiSDKIdentityDocument
 
 public class YotiFlutterPlugin: NSObject, FlutterPlugin, YotiSDKDataSource, YotiSDKDelegate  {
 
-  public func navigationController(_ navigationController: YotiSDKCore.YotiSDKNavigationController, didFinishWithResult result: YotiSDKCommon.YotiSDKResult) {
-      UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true)
+  public func navigationController(_ navigationController: YotiSDKCore.YotiSDKNavigationController, didFinishWithResult result: YotiSDKResult) {
+      UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController?.dismiss(animated: true)
       
         switch result {
           case .success:
@@ -55,7 +54,7 @@ public class YotiFlutterPlugin: NSObject, FlutterPlugin, YotiSDKDataSource, Yoti
       let sessionId: String = arguments?["sessionId"] as! String;
       let sessionToken: String = arguments?["sessionToken"] as! String;
 
-      self.startYoti(sessionId: sessionId ?? "", sessionToken: sessionToken ?? "", result: result)
+      self.startYoti(sessionId: sessionId, sessionToken: sessionToken, result: result)
     default:
       result(FlutterMethodNotImplemented)
     }
@@ -69,7 +68,7 @@ public class YotiFlutterPlugin: NSObject, FlutterPlugin, YotiSDKDataSource, Yoti
       navigationController.sdkDataSource = self
       navigationController.sdkDelegate = self
       
-      UIApplication.shared.keyWindow?.rootViewController?.present(
+      UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController?.present(
           navigationController, animated: true, completion: nil)
 
   }
